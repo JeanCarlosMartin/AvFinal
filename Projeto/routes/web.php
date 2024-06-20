@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/avfinal', function () {
+    return view('layouts.avFinal');
+});
+
+route::get('/cadastrar', [ProdutoController::class, 'create'])->name('produto.create');
+
+route::post('/cadastrar', [ProdutoController::class, 'store'])->name('produto.store');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
