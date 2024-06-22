@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/avfinal', function () {
     return view('layouts.avFinal');
 });
 
-route::get('/cadastrar', [ProdutoController::class, 'create'])->name('produto.create');
+route::get('/cadastrar', [ProdutoController::class, 'create']);
 
 route::post('/cadastrar', [ProdutoController::class, 'store'])->name('produto.store');
 
