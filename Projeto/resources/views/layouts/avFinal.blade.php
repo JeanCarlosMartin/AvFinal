@@ -80,7 +80,7 @@
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
             <div class="icon-box">
               <i class="bi bi-bullseye"></i>
-              <h3><a href="cadastrar.blade.php">Cadastrar</a></h3>
+              <h3><a href="cadastrar">Cadastrar</a></h3>
             </div>
           </div>
         </div>
