@@ -46,9 +46,10 @@ class ProdutoController extends Controller
      * @param  \App\Models\produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show(produto $produto)
+    public function show($id)
     {
-        //
+        $produto= produto::findOrFail($id);
+        return view('layouts.mostrar', ['produto'=>$produto]);
     }
 
     /**
@@ -57,9 +58,11 @@ class ProdutoController extends Controller
      * @param  \App\Models\produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function edit(produto $produto)
+    public function edit($id)
     {
-        //
+        $produto= Produto::findOrFail($id);
+
+        return view('layouts.editar',['produto'=>$produto]);
     }
 
     /**

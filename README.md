@@ -68,7 +68,7 @@ $produto= Produto::findOrFail($id); <br>
 return view('layouts.show, ['produto =>$produto]);<br>
 
 
-#BLADE
+# BLADE
 
 mostrar.blade.php
 label <br>

@@ -26,6 +26,11 @@ route::get('/cadastrar', [ProdutoController::class, 'create']);
 
 route::post('/cadastrar', [ProdutoController::class, 'store'])->name('produto.store');
 
+Route::get('/ver/{id}', [ProdutoController::class, 'show']);
+
+Route:: get('/editar/{id}', [ProdutoController::class, 'edit']);
+Route:: post('/editar/{id}', [ProdutoController::class, 'update']) ->name('alterar_produto'); 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
