@@ -60,7 +60,7 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        $produto= Produto::findOrFail($id);
+        $produto= produto::findOrFail($id);
 
         return view('layouts.editar',['produto'=>$produto]);
     }
@@ -72,9 +72,22 @@ class ProdutoController extends Controller
      * @param  \App\Models\produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, produto $produto)
+    public function update(Request $request, $id)
     {
-        //
+        //dd($request, $id);
+        //$id=$request->id;
+        $produto=produto::findOrFail($id);
+
+        dd($produto);
+
+        $produto::update([
+            'nome'=>$request->nome,
+            'tipo'=>$request->tipo,
+            'tamanho'=>$request->tamanho,
+            'preco'=>$request->preco,
+        ]);
+
+            return "Produto atualizado";
     }
 
     /**
@@ -83,8 +96,16 @@ class ProdutoController extends Controller
      * @param  \App\Models\produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(produto $produto)
+    public function delete($id)
     {
-        //
+        $produto= Produto::findOrFail($id);
+        return view('layouts.deletar',['produto'=>$produto]);
+    }
+     
+     public function destroy($id)
+    {
+        $produto= Produto::findOrFail($id);
+        $produto->delete();
+        return 'produto deletado';
     }
 }

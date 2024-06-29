@@ -31,6 +31,9 @@ Route::get('/ver/{id}', [ProdutoController::class, 'show']);
 Route:: get('/editar/{id}', [ProdutoController::class, 'edit']);
 Route:: post('/editar/{id}', [ProdutoController::class, 'update']) ->name('alterar_produto'); 
 
+Route:: get('/excluir/{id}', [ProdutoController::class, 'delete']); 
+Route:: post('/excluir/{id}', [ProdutoController::class, 'destroy'])->name('excluir_produto');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
